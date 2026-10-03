@@ -1,0 +1,6 @@
+Model,CV Accuracy (mean),CV Std,Train Accuracy,Test Accuracy,Precision,Recall,F1,ROC-AUC
+Logistic Regression,0.9736,0.0149,0.9868,0.9649,0.975,0.9286,0.9512,0.996
+Decision Tree,0.9231,0.0326,1.0,0.9298,0.9048,0.9048,0.9048,0.9246
+Random Forest,0.9626,0.0149,1.0,0.9649,1.0,0.9048,0.95,0.9942
+Gradient Boosting,0.967,0.0139,1.0,0.9649,1.0,0.9048,0.95,0.9947
+Random Forest (tuned),0.9648,0.0176,1.0,0.9561,1.0,0.881,0.9367,0.9954

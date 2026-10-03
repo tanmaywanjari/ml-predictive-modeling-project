@@ -1,0 +1,9 @@
+Predicted,Malignant probability,Actual
+Benign,0.0,Benign
+Malignant,1.0,Malignant
+Benign,0.043,Benign
+Malignant,0.576,Malignant
+Malignant,0.509,Benign
+Benign,0.001,Benign
+Malignant,0.762,Malignant
+Benign,0.001,Benign

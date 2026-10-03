@@ -1,0 +1,81 @@
+{
+  "final_model": "Logistic Regression",
+  "chosen_threshold": 0.31,
+  "rf_best_params": {
+    "max_depth": null,
+    "max_features": "log2",
+    "min_samples_leaf": 1,
+    "n_estimators": 100
+  },
+  "test_confusion_default": {
+    "TN": 71,
+    "FP": 1,
+    "FN": 3,
+    "TP": 39
+  },
+  "test_confusion_tuned_threshold": {
+    "TN": 71,
+    "FP": 1,
+    "FN": 1,
+    "TP": 41
+  },
+  "rf_top_features": {
+    "worst concave points": 0.1258,
+    "worst area": 0.1149,
+    "worst radius": 0.1073,
+    "mean perimeter": 0.1046,
+    "mean concave points": 0.0604
+  },
+  "results": {
+    "Logistic Regression": {
+      "CV Accuracy (mean)": 0.9736,
+      "CV Std": 0.0149,
+      "Train Accuracy": 0.9868,
+      "Test Accuracy": 0.9649,
+      "Precision": 0.975,
+      "Recall": 0.9286,
+      "F1": 0.9512,
+      "ROC-AUC": 0.996
+    },
+    "Decision Tree": {
+      "CV Accuracy (mean)": 0.9231,
+      "CV Std": 0.0326,
+      "Train Accuracy": 1.0,
+      "Test Accuracy": 0.9298,
+      "Precision": 0.9048,
+      "Recall": 0.9048,
+      "F1": 0.9048,
+      "ROC-AUC": 0.9246
+    },
+    "Random Forest": {
+      "CV Accuracy (mean)": 0.9626,
+      "CV Std": 0.0149,
+      "Train Accuracy": 1.0,
+      "Test Accuracy": 0.9649,
+      "Precision": 1.0,
+      "Recall": 0.9048,
+      "F1": 0.95,
+      "ROC-AUC": 0.9942
+    },
+    "Gradient Boosting": {
+      "CV Accuracy (mean)": 0.967,
+      "CV Std": 0.0139,
+      "Train Accuracy": 1.0,
+      "Test Accuracy": 0.9649,
+      "Precision": 1.0,
+      "Recall": 0.9048,
+      "F1": 0.95,
+      "ROC-AUC": 0.9947
+    },
+    "Random Forest (tuned)": {
+      "CV Accuracy (mean)": 0.9648,
+      "CV Std": 0.0176,
+      "Train Accuracy": 1.0,
+      "Test Accuracy": 0.9561,
+      "Precision": 1.0,
+      "Recall": 0.881,
+      "F1": 0.9367,
+      "ROC-AUC": 0.9954
+    }
+  }
+}
