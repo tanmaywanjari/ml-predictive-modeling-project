@@ -27,7 +27,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeClassifier, plot_tree
 
 SEED = 42
-OUT = Path("outputs"); OUT.mkdir(exist_ok=True)
+OUT = Path("output"); OUT.mkdir(exist_ok=True)
 Path("data").mkdir(exist_ok=True)
 sns.set_theme(style="whitegrid")
 COLORS = {"Logistic Regression": "#264653", "Decision Tree": "#e76f51",
@@ -230,4 +230,4 @@ demo = pd.DataFrame({"Predicted": np.where(pr >= thr, "Malignant", "Benign"),
                      "Actual": np.where(y_test.head(8) == 1, "Malignant", "Benign")})
 print("\nSample predictions:\n", demo)
 demo.to_csv(OUT / "sample_predictions.csv", index=False)
-print("\nDone -> outputs/")
+print("\nDone -> output/")

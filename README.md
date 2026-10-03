@@ -14,8 +14,8 @@ Wisconsin Diagnostic Breast Cancer dataset (UCI repository, bundled with scikit-
 - 357 benign (62.7%) and 212 malignant (37.3%): moderately imbalanced, so I used **stratified** splits.
 - Data quality check: 0 missing values and 0 duplicates.
 
-![EDA](outputs/01_eda_class_and_correlation.png)
-![Distributions](outputs/02_eda_feature_distributions.png)
+![EDA](output/01_eda_class_and_correlation.png)
+![Distributions](output/02_eda_feature_distributions.png)
 
 ## 2. Method
 1. **Split:** 80% train (455) / 20% test (114), stratified, fixed random seed (42).
@@ -38,10 +38,10 @@ Run it yourself: `pip install -r requirements.txt` then `python predictive_model
 | Gradient Boosting | 96.7% | 100% | 96.5% | 100% | 90.5% | 95.0% | 0.995 |
 | Random Forest (tuned) | 96.5% | 100% | 95.6% | 100% | 88.1% | 93.7% | 0.995 |
 
-![Comparison](outputs/03_model_comparison.png)
-![Confusion matrices](outputs/04_confusion_matrices.png)
-![ROC curves](outputs/05_roc_curves.png)
-![Train vs test](outputs/07_train_vs_test.png)
+![Comparison](output/03_model_comparison.png)
+![Confusion matrices](output/04_confusion_matrices.png)
+![ROC curves](output/05_roc_curves.png)
+![Train vs test](output/07_train_vs_test.png)
 
 **Final model: Logistic Regression**, which had the best cross-validated accuracy (97.4%) and the highest test ROC-AUC (0.996).
 
@@ -53,8 +53,8 @@ At the default threshold of 0.50 the final model missed 3 of 42 malignant tumour
 | 0.50 (default) | 96.5% | 97.5% | 92.9% | 95.1% | 3 | 1 |
 | **0.31 (tuned)** | **98.2%** | 97.6% | **97.6%** | **97.6%** | **1** | 1 |
 
-![Threshold trade-off](outputs/09_threshold_tradeoff.png)
-![Final confusion](outputs/10_final_confusion_threshold.png)
+![Threshold trade-off](output/09_threshold_tradeoff.png)
+![Final confusion](output/10_final_confusion_threshold.png)
 
 ## 4. Key insights
 1. **A simple model won.** Logistic Regression matched or beat the ensemble models. The classes are almost linearly separable, so extra complexity brought no benefit.
@@ -63,9 +63,9 @@ At the default threshold of 0.50 the final model missed 3 of 42 malignant tumour
 4. **Accuracy alone is misleading.** The Random Forest has 100% precision but misses about 1 in 10 cancers. Recall matters more in this problem, and moving the threshold improved it more than model tuning did.
 5. **The most important signals** are the "worst" (largest) tumour measurements: *worst concave points, worst area, worst radius, mean perimeter, mean concave points* (Random Forest importance, chart below). Larger and more irregular nuclei indicate malignancy.
 
-![Feature importance](outputs/06_feature_importance.png)
-![Logistic coefficients](outputs/11_logistic_coefficients.png)
-![Decision tree](outputs/08_decision_tree_depth3.png)
+![Feature importance](output/06_feature_importance.png)
+![Logistic coefficients](output/11_logistic_coefficients.png)
+![Decision tree](output/08_decision_tree_depth3.png)
 
 ## 5. Limitations
 - The test set has only 114 patients, so one patient changes accuracy by about 0.9%. The model ranking is indicative, not definitive. A different random split can change the order of the top models.
@@ -78,14 +78,14 @@ At the default threshold of 0.50 the final model missed 3 of 42 malignant tumour
 data/breast_cancer_data.csv       dataset (569 x 31)
 predictive_modeling.py            full pipeline
 requirements.txt                  dependencies
-outputs/                          charts, model_comparison.csv, threshold_comparison.csv,
+output/                          charts, model_comparison.csv, threshold_comparison.csv,
                                   classification_report.txt, summary.json, sample_predictions.csv,
                                   final_model.joblib (saved model + threshold)
 ```
 **Using the saved model:**
 ```python
 import joblib, pandas as pd
-bundle = joblib.load("outputs/final_model.joblib")
+bundle = joblib.load("output/final_model.joblib")
 X = pd.read_csv("data/breast_cancer_data.csv").drop(columns="diagnosis")[bundle["features"]]
 prob = bundle["model"].predict_proba(X.head())[:, 1]
 print(prob >= bundle["threshold"])      # True = predicted malignant
